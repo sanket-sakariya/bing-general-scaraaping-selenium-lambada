@@ -356,6 +356,7 @@ def lambda_handler(event=None, context=None):
     cc = request_data.get("cc", "US")
     qft = request_data.get("qft", "")
     batch_id = request_data.get("batch_id")
+    search_type = request_data.get("search_type", "news")
     
     if not queries or not isinstance(queries, list):
         return {
@@ -365,9 +366,10 @@ def lambda_handler(event=None, context=None):
 
     logger.debug("Queries: {}, CC: {}, QFT: {}", queries, cc, qft)
     logger.debug("Batch ID: {}", batch_id)
+    logger.debug("Search Type: {}", search_type)
     
     # Call bing_news_search without config_path parameter
-    results = bing_search(queries, cc, qft, batch_id)
+    results = bing_search(queries, cc, qft, batch_id, search_type)
     return {
         'statusCode': 200,
         'body': json.dumps(results)
