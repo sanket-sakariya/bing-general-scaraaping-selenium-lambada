@@ -266,6 +266,106 @@ bing_web:
       regex: '/About ([\d,]+) result/'
       fallback: '-1'
       
+google_news:
+  # Main container for news items
+  container: 'div[data-news-doc-id]'
+  
+  # Individual field selectors (relative to container)
+  fields:
+    title:
+      selector: '.n0jPhd'
+      attribute: 'textContent'
+      fallback: 'N/A'
+    
+    link:
+      selector: 'a.WlydOe'
+      attribute: 'href'
+      fallback: 'N/A'
+    
+    snippet:
+      selector: '.GI74Re'
+      attribute: 'textContent'
+      fallback: 'N/A'
+    
+    source:
+      selector: '.MgUUmf span'
+      attribute: 'textContent'
+      fallback: 'N/A'
+    
+    date:
+      selector: '.OSrXXb span[data-ts]'
+      attribute: 'textContent'
+      fallback: 'N/A'
+    
+    timestamp:
+      selector: '.OSrXXb span[data-ts]'
+      attribute: 'data-ts'
+      fallback: 'N/A'
+    
+    thumbnail:
+      selector: 'img[src^="data:image"], img[src^="http"]'
+      attribute: 'src'
+      fallback: 'N/A'
+  
+  # Top stories specific selectors
+  top_stories:
+    container: '.m7jPZ'
+    fields:
+      title:
+        selector: '.n0jPhd.ynAwRc'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      
+      link:
+        selector: 'a.WlydOe'
+        attribute: 'href'
+        fallback: 'N/A'
+      
+      source:
+        selector: '.MgUUmf > span:last-child'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      
+      date:
+        selector: '.OSrXXb span'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      
+      timestamp:
+        selector: '.OSrXXb span'
+        attribute: 'data-ts'
+        fallback: 'N/A'
+  
+  # Pagination selectors
+  pagination:
+    container: 'td'
+    fields:
+      link:
+        selector: 'a.fl'
+        attribute: 'href'
+        fallback: 'N/A'
+      
+      page_number:
+        selector: null
+        attribute: 'textContent'
+        fallback: 'N/A'
+      
+      next_page:
+        selector: 'a#pnnext'
+        attribute: 'href'
+        fallback: 'N/A'
+  
+  # Global selectors (page-level data)
+  global:
+    result_count:
+      selector: 'body'
+      regex: 'About ([\\d,]+) result'
+      fallback: '-1'
+    
+    page_title:
+      selector: 'title'
+      attribute: 'textContent'
+      fallback: 'N/A'
 # Processing configuration for Bing News
 processing:
   # Relative time conversion patterns
