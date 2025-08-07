@@ -89,9 +89,12 @@ function extractBingOrganicResults(root = document) {
                     (result.link ? new URL(result.link).hostname : 'N/A');
 
     // Snippet
-    const snippetElem = item.querySelector('.b_snippet p') || 
-                        item.querySelector('.b_imgcap_altitle p.b_lineclamp3');
-    result.snippet = snippetElem?.innerText?.trim() || 'N/A';
+const snippetElem = item.querySelector('.b_snippet p') ||
+                    item.querySelector('.b_imgcap_altitle p.b_lineclamp3') ||
+                    item.querySelector('.b_caption p');
+
+result.snippet = snippetElem?.innerText?.trim() || 'N/A';
+
 
 
     extractedResults.push(result);

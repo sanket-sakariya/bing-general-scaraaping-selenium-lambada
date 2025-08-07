@@ -1,0 +1,292 @@
+# CSS Selectors Configuration for Bing News Scraping
+
+bing_news:
+  # Main container for news items
+  container: '.news-card.newsitem'
+  
+  # Individual field selectors (relative to container)
+  fields:
+    title:
+      selector: 'a.title'
+      attribute: 'textContent'
+      fallback: 'N/A'
+    
+    link:
+      selector: 'a.title'
+      attribute: 'href'
+      fallback: 'N/A'
+    
+    snippet:
+      selector: '.snippet'
+      attribute: 'textContent'
+      fallback: 'N/A'
+    
+    source:
+      selector: '.pubimg'
+      attribute: 'title'
+      fallback: 'N/A'
+    
+    time:
+      selector: '.caption .source span[tabindex="0"]'
+      attribute: 'textContent'
+      fallback: 'N/A'
+    
+    domain_url:
+      selector: null  # Use container attribute
+      attribute: 'url'
+      fallback_attribute: 'data-url'
+      fallback: 'N/A'
+    
+  
+  # Global selectors (page-level data)
+  global:
+    result_count:
+      selector: 'body'
+      regex: 'About ([\\d,]+) result'
+      fallback: '-1'
+    
+    page_title:
+      selector: 'title'
+      attribute: 'textContent'
+      fallback: 'N/A'
+
+# ...existing code...
+
+bing_images:
+  container: 'li[data-idx]'
+  fields:
+    title:
+      selector: 'a.iusc'
+      attribute: 'm'
+      parse_json: true
+      json_key: 't'
+      fallback: 'N/A'
+    link:
+      selector: 'a.iusc'
+      attribute: 'm'
+      parse_json: true
+      json_key: 'murl'
+      fallback: 'N/A'
+    domain:
+      selector: '.lnkw a'
+      attribute: 'href'
+      parse_domain: true
+      fallback: 'N/A'
+    width:
+      selector: '.mimg'
+      attribute: 'width'
+      fallback: 'N/A'
+    height:
+      selector: '.mimg'
+      attribute: 'height'
+      fallback: 'N/A'
+
+  global:
+    page_title:
+      selector: 'title'
+      attribute: 'textContent'
+      fallback: 'N/A'
+    result_count:
+      selector: 'body'
+      regex: 'About ([\\d,]+) result'
+      fallback: '-1'
+
+bing_web:
+  top_stories:
+    container: '#ans_nws .na_card_wrp'
+    fields:
+      title:
+        selector: 'a.na_ccw, a.nws_itm_link'
+        attribute: 'titletext'
+        fallback: 'N/A'
+      link:
+        selector: 'a.na_ccw, a.nws_itm_link'
+        attribute: 'href'
+        fallback: 'N/A'
+      source:
+        selector: '.cap_title, .caption cite, .big_pub_logo cite'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      time:
+        selector: '.cap_txt'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      image:
+        selector: 'img.rms_img'
+        attribute: 'src'
+        fallback: 'N/A'
+      description:
+        selector: '.na_cal_title, .na_t_news_caption, .itm_spt'
+        attribute: 'textContent'
+        fallback: 'N/A'
+
+  organic_results:
+    container: 'li.b_algo'
+    fields:
+      position:
+        selector: null
+        attribute: 'position'
+        fallback: 'N/A'
+      title:
+        selector: 'h2 > a'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      link:
+        selector: 'h2 > a'
+        attribute: 'href'
+        fallback: 'N/A'
+      domain:
+        selector: 'cite'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      snippet:
+        selector: '.b_snippet p, .b_imgcap_altitle p.b_lineclamp3, .b_caption p'
+        attribute: 'textContent'
+        fallback: 'N/A'
+
+  pagination:
+    container: 'ul.sb_pagF a'
+    fields:
+      link:
+        selector: null
+        attribute: 'href'
+        fallback: 'N/A'
+      type:
+        selector: null
+        attribute: 'class'
+        fallback: 'page'
+      pageNumber:
+        selector: null
+        attribute: 'aria-label'
+        fallback: 'N/A'
+
+  related_searches:
+    container: '.b_rs ul.b_vList > li'
+    fields:
+      position:
+        selector: null
+        attribute: 'position'
+        fallback: 'N/A'
+      link:
+        selector: 'a'
+        attribute: 'href'
+        fallback: 'N/A'
+      title:
+        selector: '.b_suggestionText'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      question:
+        selector: '.b_suggestionText'
+        attribute: 'textContent'
+        fallback: 'N/A'
+
+  related_questions:
+    container: '.df_alsoAskCard'
+    fields:
+      question:
+        selector: '.df_qntext'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      answer:
+        selector: '.df_alsocon'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      link:
+        selector: null
+        attribute: 'closest_a'
+        fallback: 'N/A'
+      domain:
+        selector: '.qna_attr cite'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      title:
+        selector: 'h2 span'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      position:
+        selector: null
+        attribute: 'position'
+        fallback: 'N/A'
+
+  video_results:
+    container: '.mc_vtvc'
+    fields:
+      title:
+        selector: '.mc_vtvc_title'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      duration:
+        selector: '.mc_bc.items'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      channel:
+        selector: '.mc_vtvc_meta_row_channel'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      videoLink:
+        selector: 'a.mc_vtvc_link'
+        attribute: 'href'
+        fallback: 'N/A'
+      thumbnail:
+        selector: '.mc_vtvc_th img'
+        attribute: 'src'
+        fallback: 'N/A'
+      position:
+        selector: null
+        attribute: 'position'
+        fallback: 'N/A'
+
+  cast_data:
+    container: '.l_ecrd_car_item'
+    fields:
+      position:
+        selector: null
+        attribute: 'position'
+        fallback: 'N/A'
+      name:
+        selector: '.b_strong'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      character:
+        selector: '.b_strong + *'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      image:
+        selector: 'img'
+        attribute: 'data-src-hq'
+        fallback: 'N/A'
+
+  global:
+    page_title:
+      selector: 'title'
+      attribute: 'textContent'
+      fallback: 'N/A'
+    result_count:
+      selector: 'body'
+      regex: '/About ([\d,]+) result/'
+      fallback: '-1'
+      
+# Processing configuration for Bing News
+processing:
+  # Relative time conversion patterns
+  time_patterns:
+    - pattern: '(\\d+)h'
+      type: 'hours'
+    - pattern: '(\\d+)m'
+      type: 'minutes' 
+    - pattern: '(\\d+)d'
+      type: 'days'
+  
+  # Text cleaning options
+  text_cleaning:
+    trim_whitespace: true
+    remove_extra_spaces: true
+  
+  # Domain extraction
+  domain_extraction: true
+
+# Error handling settings
+error_handling:
+  default_fallback: 'N/A'
+  max_retries: 3
+  retry_delay: 1000
