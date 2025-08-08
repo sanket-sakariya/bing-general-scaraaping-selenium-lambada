@@ -366,6 +366,433 @@ google_news:
       selector: 'title'
       attribute: 'textContent'
       fallback: 'N/A'
+
+google_web:
+  # Organic search results
+  organic_results:
+    container: 'div.MjjYud'
+    fields:
+      position:
+        selector: null
+        attribute: 'position'
+        fallback: 'N/A'
+      title:
+        selector: 'h3'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      link:
+        selector: 'a'
+        attribute: 'href'
+        fallback: 'N/A'
+      domain:
+        selector: null
+        attribute: 'domain_from_link'
+        fallback: 'N/A'
+      snippet:
+        selector: '.VwiC3b'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      image:
+        selector: 'img.XNo5Ab'
+        attribute: 'src'
+        fallback: 'N/A'
+
+  # Local business results
+  local_results:
+    container: 'div.cXedhc'
+    fields:
+      position:
+        selector: null
+        attribute: 'position'
+        fallback: 'N/A'
+      title:
+        selector: '.dbg0pd .OSrXXb'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      snippet:
+        selector: '.pJ3Ci span'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      address:
+        selector: '.rllt__details > div:nth-child(3)'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      business_type:
+        selector: '.rllt__details > div:nth-child(2)'
+        attribute: 'business_type_from_text'
+        fallback: 'N/A'
+      price:
+        selector: '.rllt__details > div:nth-child(2)'
+        attribute: 'price_from_text'
+        fallback: 'N/A'
+      rating:
+        selector: '.yi40Hd'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      review:
+        selector: '.RDApEe'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      data_cid:
+        selector: 'a[data-cid]'
+        attribute: 'data-cid'
+        fallback: 'N/A'
+      image:
+        selector: 'img.YQ4gaf'
+        attribute: 'src'
+        fallback: 'N/A'
+      website:
+        selector: null
+        attribute: 'website_from_parent'
+        fallback: 'N/A'
+      directions:
+        selector: null
+        attribute: 'directions_from_parent'
+        fallback: 'N/A'
+
+  # Pagination
+  pagination:
+    container: 'td'
+    fields:
+      page:
+        selector: 'a.fl'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      url:
+        selector: 'a.fl'
+        attribute: 'href'
+        fallback: 'N/A'
+      current_page:
+        selector: null
+        attribute: 'current_page_from_text'
+        fallback: 'N/A'
+      next_page_link:
+        selector: 'a#pnnext'
+        attribute: 'href'
+        fallback: 'N/A'
+
+  # Related searches
+  related_searches:
+    container: 'a.ngTNl.ggLgoc'
+    fields:
+      position:
+        selector: null
+        attribute: 'position'
+        fallback: 'N/A'
+      title:
+        selector: 'span.dg6jd'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      link:
+        selector: null
+        attribute: 'href'
+        fallback: 'N/A'
+
+  # Related questions/answers
+  related_questions:
+    container: 'div.wQiwMc.related-question-pair'
+    fields:
+      question:
+        selector: '.CSkcDe'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      answer:
+        selector: null
+        attribute: 'answer_from_multiple'
+        fallback: 'N/A'
+      link:
+        selector: 'a.zReHs'
+        attribute: 'href'
+        fallback: 'N/A'
+      title:
+        selector: 'a.zReHs h3.LC20lb'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      domain:
+        selector: null
+        attribute: 'domain_from_cite_or_link'
+        fallback: 'N/A'
+      blockposition:
+        selector: null
+        attribute: 'position'
+        fallback: 'N/A'
+
+  # Top stories
+  top_stories:
+    container: '.m7jPZ'
+    fields:
+      visible:
+        selector: null
+        attribute: 'visible_from_index'
+        fallback: 'false'
+      title:
+        selector: '.n0jPhd.ynAwRc'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      source:
+        selector: '.MgUUmf > span:last-child'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      date:
+        selector: '.OSrXXb span'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      utc_date:
+        selector: '.OSrXXb span'
+        attribute: 'data-ts'
+        fallback: 'N/A'
+      link:
+        selector: 'a.WlydOe'
+        attribute: 'href'
+        fallback: 'N/A'
+
+  # Visual stories (inline images)
+  visual_stories:
+    container: 'div.w43QB.EXH1Ce'
+    fields:
+      position:
+        selector: null
+        attribute: 'position'
+        fallback: 'N/A'
+      title:
+        selector: 'span.Yt787'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      image:
+        selector: 'img[id^="dimg_"]'
+        attribute: 'src'
+        fallback: 'N/A'
+      link:
+        selector: 'a.ddkIM'
+        attribute: 'href'
+        fallback: 'N/A'
+
+  # Video results
+  video_results:
+    container: 'div.Tu1FGd'
+    fields:
+      title:
+        selector: 'div.OSrXXb span'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      duration:
+        selector: '.kSFuOd span'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      channel:
+        selector: '.Sg4azc'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      videoLink:
+        selector: 'a.rIRoqf'
+        attribute: 'href'
+        fallback: 'N/A'
+      thumbnail:
+        selector: 'img'
+        attribute: 'src'
+        fallback: 'N/A'
+
+  # Tweet results
+  tweet_results:
+    container: '.fy7gGf'
+    fields:
+      snippet:
+        selector: '.ZgGG5b .xcQxib'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      statusLink:
+        selector: 'a.h4kbcd'
+        attribute: 'href'
+        fallback: 'N/A'
+      image:
+        selector: 'img'
+        attribute: 'src'
+        fallback: 'N/A'
+      title:
+        selector: null
+        attribute: 'static_text'
+        value: 'Tweet from embedded source'
+        fallback: 'N/A'
+      time:
+        selector: '.PygIW'
+        attribute: 'textContent'
+        fallback: 'N/A'
+
+  # Hotel results
+  hotel_results:
+    container: 'a[jsname][role="link"].NANqI'
+    fields:
+      position:
+        selector: null
+        attribute: 'position'
+        fallback: 'N/A'
+      dataKey:
+        selector: null
+        attribute: 'data-key'
+        fallback: 'N/A'
+      lat:
+        selector: null
+        attribute: 'data-lat'
+        fallback: 'N/A'
+      lng:
+        selector: null
+        attribute: 'data-lng'
+        fallback: 'N/A'
+      name:
+        selector: '.KmZaZb .BTPx6e'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      price:
+        selector: '.c4RtQd .sRlU8b'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      rating:
+        selector: '.j4Tqqd .Y0A0hc .yi40Hd'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      reviewCount:
+        selector: '.j4Tqqd .Y0A0hc .RDApEe'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      snippet:
+        selector: '.dLtZ8b'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      type:
+        selector: '.j4Tqqd .NAkmnc'
+        attribute: 'textContent'
+        fallback: 'N/A'
+      blockPosition:
+        selector: null
+        attribute: 'position'
+        fallback: 'N/A'
+
+  # Movie/Film data
+  movie_data:
+    cast_data:
+      container: '.XRVJtc.bnmjfe.aKByQb'
+      fields:
+        name:
+          selector: '.yVCOtc.CvgGZ.LJEGod.aKoISd'
+          attribute: 'textContent'
+          fallback: 'N/A'
+        character:
+          selector: '.PeZnd'
+          attribute: 'textContent'
+          fallback: 'N/A'
+        imageUrl:
+          selector: 'img'
+          attribute: 'data-src'
+          fallback_attribute: 'src'
+          fallback: 'N/A'
+    
+    reviews_data:
+      rating:
+        selector: 'div.xt8Uw.q8U8x'
+        attribute: 'textContent'
+        fallback: null
+      reviews:
+        container: 'div.e8eHnd'
+        fields:
+          description:
+            selector: 'span'
+            attribute: 'textContent'
+            fallback: null
+          source:
+            selector: null
+            attribute: 'source_img_from_parent'
+            fallback: null
+      more_reviews_link:
+        selector: 'g-more-link .Z4Cazf'
+        attribute: 'textContent'
+        fallback: null
+    
+    services_data:
+      container: '.eGiiEf.ngmM2 .bLddW.U5EKEf.coTbne.ZEISdd'
+      fields:
+        title:
+          selector: null
+          attribute: 'title_from_h1'
+          fallback: 'Unknown Title'
+        serviceName:
+          selector: 'a.coTbne .ellip.bclEt'
+          attribute: 'textContent'
+          fallback: 'N/A'
+        price:
+          selector: 'a.coTbne .ellip.rsj3fb'
+          attribute: 'textContent'
+          fallback: 'N/A'
+        link:
+          selector: 'a.coTbne'
+          attribute: 'href'
+          fallback: 'N/A'
+        imageUrl:
+          selector: 'a.coTbne img'
+          attribute: 'src'
+          fallback: 'N/A'
+
+  # Global selectors (page-level data)
+  global:
+    page_title:
+      selector: 'title'
+      attribute: 'textContent'
+      fallback: 'N/A'
+    result_count:
+      selector: '#result-stats'
+      attribute: 'result_count_from_text'
+      fallback: '-1'
+
+google_images:
+  container: div[data-attrid="images universal"]
+  fields:
+    domain:
+      attribute: textContent
+      fallback: N/A
+      selector: .guK3rf span
+    height:
+      attribute: height
+      fallback: N/A
+      selector: img.YQ4gaf
+    image:
+      attribute: src
+      fallback: N/A
+      selector: img.YQ4gaf
+    link:
+      attribute: href
+      fallback: N/A
+      selector: a.EZAeBe, a
+    position:
+      attribute: position
+      fallback: N/A
+    source_link:
+      attribute: href
+      fallback: N/A
+      selector: a.EZAeBe
+    source_name:
+      attribute: textContent
+      fallback: N/A
+      selector: .guK3rf span
+    title:
+      attribute: textContent
+      fallback: N/A
+      selector: .toI8Rb, h3
+    width:
+      attribute: width
+      fallback: N/A
+      selector: img.YQ4gaf
+  
+  # Global selectors (page-level data)
+  global:
+    result_count:
+      selector: 'body'
+      regex: 'About ([\\d,]+) result'
+      fallback: '-1'
+    
+    page_title:
+      selector: 'title'
+      attribute: 'textContent'
+      fallback: 'N/A'
+
 # Processing configuration for Bing News
 processing:
   # Relative time conversion patterns
