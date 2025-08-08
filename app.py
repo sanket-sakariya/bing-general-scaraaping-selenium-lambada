@@ -169,12 +169,12 @@ def Gen_search(queries, cc, qft, batch_id=None, search_type="news", serpOptions=
 
     # Choose JS file and config section
     js_file_mapping = {
-        "bing-images": ('img-yaml.js', { "bing_images": config.get("bing_images", {}), "processing": config.get("processing", {}), "error_handling": config.get("error_handling", {}) }),
-        "bing-web": ('web-yaml.js', { "bing_web": config.get("bing_web", {}), "processing": config.get("processing", {}), "error_handling": config.get("error_handling", {}) }),
+        "bing-images": ('bing-img-yaml.js', { "bing_images": config.get("bing_images", {}), "processing": config.get("processing", {}), "error_handling": config.get("error_handling", {}) }),
+        "bing-web": ('bing-web-yaml.js', { "bing_web": config.get("bing_web", {}), "processing": config.get("processing", {}), "error_handling": config.get("error_handling", {}) }),
         "google-news": ('google-news-yaml.js', { "google_news": config.get("google_news", {}), "processing": config.get("processing", {}), "error_handling": config.get("error_handling", {}) }),
         "google-images": ('google-image-yaml.js', { "google_images": config.get("google_images", {}), "processing": config.get("processing", {}), "error_handling": config.get("error_handling", {}) }),
         "google-web": ('google-web-yaml.js', { "google_web": config.get("google_web", {}), "processing": config.get("processing", {}), "error_handling": config.get("error_handling", {}) }),
-        "news": ('news-yaml.js', { "bing_news": config.get("bing_news", {}), "processing": config.get("processing", {}), "error_handling": config.get("error_handling", {}) }),
+        "news": ('bing-news-yaml.js', { "bing_news": config.get("bing_news", {}), "processing": config.get("processing", {}), "error_handling": config.get("error_handling", {}) }),
     }
     
     # Get JS file and config for the search type, default to news
